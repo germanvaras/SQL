@@ -52,8 +52,7 @@ CREATE TABLE IF NOT EXISTS Grupo (
 
 CREATE TABLE IF NOT EXISTS Torneo (
     ID_torneo INT AUTO_INCREMENT PRIMARY KEY,
-    Temporada INT COMMENT 'Temporada del campeonato (e.g. 2023)',
-    Nombre VARCHAR(255) COMMENT 'Nombre del campeonato (e.g Uefa Champions League)'
+    Temporada VARCHAR(10) COMMENT 'Temporada del campeonato (e.g. 2022/2023)'
 );
 CREATE TABLE IF NOT EXISTS HistoricoCampeones (
     ID_campeon_historico INT AUTO_INCREMENT PRIMARY KEY,
@@ -65,7 +64,6 @@ CREATE TABLE IF NOT EXISTS HistoricoCampeones (
 CREATE TABLE IF NOT EXISTS Partido (
     ID_partido INT AUTO_INCREMENT PRIMARY KEY,
     Fecha DATE COMMENT 'Fecha del partido',
-    Hora TIME COMMENT 'Hora de juego',
     ID_local INT COMMENT 'Identificador equipo local',
     ID_visitante INT COMMENT 'Identificador equipo visitante',
     ID_arbitro INT COMMENT 'Identificador arbitro responsable',
@@ -83,10 +81,9 @@ CREATE TABLE IF NOT EXISTS Partido (
 );
 CREATE TABLE IF NOT EXISTS Gol (
     ID_gol INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador del Gol',
-    Minuto INT COMMENT 'Nombre del equipo',
+    Minuto INT COMMENT 'Minuto en el que se anotó',
     ID_jugador INT COMMENT 'Identificador del jugador que anotó',
     ID_partido INT COMMENT 'Identificador del partido',
-    Goles_marcados INT COMMENT 'Acumulador de goles del jugador',
     FOREIGN KEY (ID_jugador) REFERENCES Jugador(ID_jugador),
     FOREIGN KEY (ID_partido) REFERENCES Partido(ID_partido)
 );
@@ -94,7 +91,6 @@ CREATE TABLE IF NOT EXISTS Asistencia (
     ID_asistencia INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador de la Asistencia',
     ID_jugador INT COMMENT 'Identificador del jugador que anotó',
     ID_gol INT COMMENT 'Identificador del Gol',
-    Asistencias_marcadas INT COMMENT 'Acumulador de goles del jugador',
     FOREIGN KEY (ID_jugador) REFERENCES Jugador(ID_jugador),
     FOREIGN KEY (ID_gol) REFERENCES Gol(ID_gol)
 );
@@ -104,17 +100,16 @@ CREATE TABLE IF NOT EXISTS TipoTarjeta (
 );
 CREATE TABLE IF NOT EXISTS Tarjeta (
     ID_tarjeta INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador de la Tarjeta',
-    Minuto INT COMMENT 'Minuto en el que se anotó el gol',
-    ID_tipo_tarjeta INT COMMENT 'Nombre del equipo',
+    ID_tipo_tarjeta INT COMMENT 'Identificador de tarjeta',
     ID_partido INT COMMENT 'Identificador del partido',
-    ID_jugador INT COMMENT 'Identificador del jugador que anotó',
+    ID_jugador INT COMMENT 'Identificador que recibió la tarjeta',
     FOREIGN KEY (ID_tipo_tarjeta) REFERENCES TipoTarjeta(ID_tipo_tarjeta),
     FOREIGN KEY (ID_partido) REFERENCES Partido(ID_partido),
     FOREIGN KEY (ID_jugador) REFERENCES Jugador(ID_jugador)
 );
 CREATE TABLE IF NOT EXISTS Goleador (
     ID_goleador INT AUTO_INCREMENT PRIMARY KEY,
-    ID_jugador INT COMMENT 'Identificador del jugador que anotó',
+    ID_jugador INT COMMENT 'Identificador del jugador',
     ID_torneo INT COMMENT 'Identificador del torneo',
     Goles_marcados INT COMMENT 'Acumulador de goles del jugador',
     FOREIGN KEY (ID_jugador) REFERENCES Jugador(ID_jugador),
