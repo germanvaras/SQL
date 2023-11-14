@@ -1,7 +1,7 @@
 DROP SCHEMA IF EXISTS prensa_uefa_champions_league;
 CREATE SCHEMA prensa_uefa_champions_league;
 use prensa_uefa_champions_league;
-CREATE OR REPLACE VIEW prensa_uefa_champions_league.vw_InfoJugador AS
+CREATE OR REPLACE VIEW prensa_uefa_champions_league.VW_INFO_JUGADOR AS
 SELECT 
     j.ID_jugador, 
     j.Nombre, 
@@ -16,7 +16,7 @@ FROM
     uefa_champions_league.Jugador j
     JOIN uefa_champions_league.Equipo e ON j.ID_equipo = e.ID_equipo
     JOIN uefa_champions_league.Entrenador et ON e.ID_entrenador = et.ID_entrenador;
-CREATE OR REPLACE VIEW prensa_uefa_champions_league.vw_DetallesPartido AS
+CREATE OR REPLACE VIEW prensa_uefa_champions_league.VW_DETALLE_PARTIDOS AS
 SELECT 
     p.ID_partido,
     e1.Nombre AS EquipoLocal,
@@ -32,7 +32,7 @@ FROM
     JOIN uefa_champions_league.Equipo e1 ON p.ID_local = e1.ID_equipo
     JOIN uefa_champions_league.Equipo e2 ON p.ID_visitante = e2.ID_equipo;
 
-CREATE OR REPLACE VIEW prensa_uefa_champions_league.vw_GoleadoresTorneo AS
+CREATE OR REPLACE VIEW prensa_uefa_champions_league.VW_GOLEADORES_TORNEO AS
 SELECT 
     g.ID_jugador, 
     j.Nombre, 
@@ -45,7 +45,7 @@ FROM
     JOIN uefa_champions_league.Jugador j ON g.ID_jugador = j.ID_jugador
     JOIN uefa_champions_league.Torneo t ON g.ID_torneo = t.ID_torneo
 ORDER BY g.Goles_marcados DESC;
-CREATE OR REPLACE VIEW prensa_uefa_champions_league.vw_ClasificacionGrupos AS
+CREATE OR REPLACE VIEW prensa_uefa_champions_league.VW_CLASIFICACIONES_GRUPO AS
 SELECT 
     c.ID_Clasificacion, 
     c.Puntos, 
@@ -63,7 +63,7 @@ FROM
     uefa_champions_league.ClasificacionGrupo c
     JOIN uefa_champions_league.Equipo e ON c.ID_equipo = e.ID_equipo
     JOIN uefa_champions_league.Torneo t ON c.ID_torneo = t.ID_torneo;
-CREATE OR REPLACE VIEW prensa_uefa_champions_league.vw_RendimientoEquipoTorneo AS
+CREATE OR REPLACE VIEW prensa_uefa_champions_league.VW_RENDIMIENTO_EQUIPOS_TORNEO AS
 SELECT 
     e.ID_equipo,
     e.Nombre AS NombreEquipo,
