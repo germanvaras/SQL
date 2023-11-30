@@ -1,3 +1,4 @@
+use uefa_champions_league
 DELIMITER //
 CREATE PROCEDURE CheckAndAct()
 BEGIN
