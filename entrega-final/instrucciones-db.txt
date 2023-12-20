@@ -1,0 +1,37 @@
+Instrucciones de Implementación de la Base de Datos de la UEFA Champions League
+
+Para asegurar la correcta construcción y población de la base de datos de la UEFA Champions League, siga el orden de ejecución de los scripts SQL proporcionado a continuación. Cada paso debe completarse sin errores antes de pasar al siguiente.
+
+Los siguientes scripts se encuentran dentro de la carpeta objects:
+
+Script de Estructura Principal:
+Comience con el archivo uefa-champions-league-script.sql. Este script establece la estructura fundamental de la base de datos, creando todas las tablas necesarias con sus respectivas columnas y tipos de datos.
+
+Triggers:
+Continúe con triggers-uefa-champions.sql. Este archivo contiene triggers esenciales para mantener la integridad de la base de datos, automatizando tareas como la creación de logs de auditoría.
+
+Población de Datos Iniciales:
+Ejecute populate-uefa-champions.sql para insertar datos iniciales en las tablas. Esto incluye información del torneo 22/23.
+
+Funciones:
+Proceda con functions-champions.sql, que define funciones personalizadas para realizar cálculos y operaciones recurrentes dentro de la base de datos.
+
+Procedimientos :
+Aplique stored-procedures-champions.sql para crear procedimientos almacenados que proporcionan una manera de encapsular la lógica de negocio y las operaciones de la base de datos que se invocarán varias veces.
+
+Vistas para Prensa:
+Utilice views-prensa-champions.sql para configurar vistas. Estas son esenciales para presentar datos complejos de manera simplificada, especialmente útiles para la prensa y la realización de informes.
+
+Transacciones:
+Implemente transaction-estadios-entrenadores.sql para manejar operaciones que involucren múltiples pasos como una unidad, asegurando la consistencia de los datos.
+
+Permisos de Usuario:
+Finalmente, establezca los permisos de usuario con users-permissions.sql. Esto garantiza que los usuarios tengan los niveles adecuados de acceso para sus roles específicos.
+
+Backup(dentro de la carpeta backup):
+Es recomendable realizar un backup antes de iniciar el proceso. Use el archivo Dump20231211.sql para este propósito.
+Nota Importante: Es crucial que todos los scripts se ejecuten en el entorno localhost y bajo la base de datos uefa_champions_league, la cual debe ser seleccionada previamente con el comando USE uefa_champions_league;.
+
+Restauración y Rollback:
+En caso de que necesite revertir a un estado anterior, puede utilizar los puntos de guardado creados dentro de las transacciones o restaurar desde el último backup realizado.
+Por favor, asegúrese de revisar cada script y su ejecución para confirmar que las operaciones se realizan con éxito. La correcta secuencia y ejecución de estos pasos es vital para el funcionamiento óptimo de la base de datos de la UEFA Champions League.
