@@ -2,10 +2,10 @@
 
 Este proyecto es un modelo de base de datos para la UEFA Champions League, diseñado como parte del curso de base de datos en CoderHouse. Contiene todos los scripts SQL necesarios para crear, poblar y gestionar una base de datos que representa la estructura y la dinámica del torneo de fútbol más prestigioso de Europa.
 
-# Estructura del Repositorio
+# Estructura de la entrega final
 
 <pre>
-uefa-champions-league/
+entrega-final/
 │
 ├── objects/                         # Scripts para la creación de objetos de la base de datos
 │   ├── functions-champions.sql      # Funciones
@@ -20,8 +20,6 @@ uefa-champions-league/
 │
 ├── backup/                          # Backup inicial de la base de datos
 │   └── Dump20231211.sql             # Archivo de backup
-│
-└── README.md                        # Este archivo
 </pre>
 
 Para configurar la base de datos, siga los pasos a continuación en el orden dado:
@@ -45,7 +43,7 @@ Si necesita revertir los cambios, utilice los puntos de guardado dentro de las t
 
 ## Nota para los Estudiantes
 
-Este modelo es una herramienta educativa. Se anima a los estudiantes a explorar, modificar y mejorar el diseño proporcionado. La participación activa y la experimentación son clave para el aprendizaje efectivo en CoderHouse.
+Este modelo es una herramienta educativa. Se anima a los estudiantes a explorar, modificar y mejorar el diseño proporcionado. La participación activa y la experimentación son clave para el aprendizaje efectivo en CoderHouse. No te quedés solo con la entrega final, animate a revisar el resto de los desafios.
 
 ---
 
